@@ -1,0 +1,31 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --animate-slide-left: slide-left 0.25s cubic-bezier(0.33, 1, 0.68, 1) 0s 1 normal none running;
+  --animate-fade-in: fade-in 0.2s cubic-bezier(0.33, 1, 0.68, 1) 0s 1 normal none running;
+
+  @keyframes slide-left {
+    from {
+      transform: translateX(100%);
+    }
+  }
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+#root {
+  position: relative;
+}
+
+@layer components {
+  .bg-main {
+    @apply bg-neutral-50 text-neutral-950 dark:bg-neutral-800 dark:text-neutral-200 border-pink-900;
+  }
+}
