@@ -3,6 +3,8 @@
 import { useEffect } from "react";
 import useAppState from "../../context/useAppState";
 import { PiXBold } from "react-icons/pi";
+import ButtonIcon from "../basic/ButtonIcon";
+import ToggleSwitch from "../basic/ToggleSwitch";
 
 export default function Menu() {
   const [{ isMenuOpen, isDark }, dispatch] = useAppState();
@@ -40,28 +42,23 @@ export default function Menu() {
           e.stopPropagation();
         }}
       >
-        <div className="mt-2 flex items-center justify-between">
+        <div className="mt-1 flex items-center justify-between">
           <div className="pl-2">Howdy!</div>
-          <button
-            className="cursor-pointer p-2 text-2xl"
-            type="button"
+          <ButtonIcon
+            className="mt-1 mr-2"
             title="Close Menu"
             onClick={() => dispatch({ type: "setIsMenuOpen", payload: false })}
           >
             <PiXBold />
-          </button>
+          </ButtonIcon>
         </div>
         <div>
-          <label>
-            Dark Mode?
-            <input
-              type="checkbox"
-              checked={isDark}
-              onChange={(e) => {
-                dispatch({ type: "setIsDark", payload: e.target.checked });
-              }}
-            />
-          </label>
+          <ToggleSwitch
+            checked={isDark}
+            onToggle={(next) => dispatch({ type: "setIsDark", payload: next })}
+            leftText="Light Mode"
+            rightText="Dark Mode"
+          />
         </div>
       </div>
     </div>
