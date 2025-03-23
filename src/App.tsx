@@ -1,5 +1,5 @@
-import Menu from "./components/page/Menu";
-import MenuButton from "./components/page/MenuButton";
+import Menu from "./components/menu/Menu";
+import MenuButton from "./components/menu/MenuButton";
 
 function App() {
   return (

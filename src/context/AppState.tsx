@@ -1,9 +1,11 @@
 import { createContext } from "react";
+import { LocalStorageKeys } from "../constants";
 
 // get dark mode based on saved preference or system preference
 const defaultIsDark =
-  localStorage.theme === "dark" ||
-  (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches);
+  localStorage[LocalStorageKeys.theme] === "dark" ||
+  (!(LocalStorageKeys.theme in localStorage) &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches);
 document.documentElement.classList.toggle("dark", defaultIsDark);
 
 export interface AppState {
@@ -22,7 +24,7 @@ export function appStateReducer(state: AppState, action: AppStateAction): AppSta
   const { type, payload } = action;
   switch (type) {
     case "setIsDark": {
-      localStorage.theme = payload ? "dark" : "light";
+      localStorage[LocalStorageKeys.theme] = payload ? "dark" : "light";
       document.documentElement.classList.toggle("dark", payload);
       return { ...state, isDark: payload };
     }

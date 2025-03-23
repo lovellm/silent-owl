@@ -37,6 +37,13 @@ export default tseslint.config(
       ...jsxA11y.flatConfigs.recommended.rules,
       "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
       "no-console": ["warn", { allow: ["warn", "error"] }],
+      "jsx-a11y/label-has-associated-control": [
+        2,
+        {
+          controlComponents: ["Toggle"],
+          depth: 3,
+        },
+      ],
     },
   },
 );
