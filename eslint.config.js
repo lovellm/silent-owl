@@ -44,6 +44,12 @@ export default tseslint.config(
           depth: 3,
         },
       ],
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          caughtErrors: "none",
+        },
+      ],
     },
   },
 );

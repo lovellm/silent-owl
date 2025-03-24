@@ -1,16 +1,12 @@
 import Menu from "./components/menu/Menu";
-import MenuButton from "./components/menu/MenuButton";
+import Header from "./components/page/Header";
+import Main from "./components/page/Main";
 
 function App() {
   return (
     <>
-      <header className="flex justify-between border-b border-pink-900 p-2">
-        <h1>Untitled Project</h1>
-        <div>
-          <MenuButton />
-        </div>
-      </header>
-      <main className="relative p-2">Stuff Goes Here</main>
+      <Header />
+      <Main />
       <Menu />
     </>
   );
